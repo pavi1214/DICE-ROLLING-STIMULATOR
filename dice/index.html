@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <link rel="stylesheet"href="dice.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice</title>
+</head>
+<body>
+    <center>
+    <div class="container">
+         <h1 id="title">Roll the dice</h1>
+        <div id ="dice" class="dice">
+</div>   
+        <button class="btn" id="btn"
+       onclick="roll()">Roll</button>
+       <audio Src="dice.mp3"id="diceAudio"></audio>
+   
+           </div>
+           </center>
+<script>
+   function roll() {
+    console.log('rolling');
+
+    let dice = document.getElementById("dice");
+    dice.classList.add('spin');
+
+    let dices = Math.floor(Math.random() * 6) + 1;
+    dice.innerText = dices; 
+
+    let audio = document.getElementById("diceAudio");
+    audio.currentTime = 0;
+    audio.play();
+
+    setTimeout(function () {
+        dice.classList.remove('spin');
+    }, 1000);
+
+    
+}
+
+</script>
+</body>
+</html>
